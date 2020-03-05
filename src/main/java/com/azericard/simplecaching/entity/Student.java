@@ -8,5 +8,4 @@ import lombok.Data;
 public class Student {
     private long id;
     private String name;
-    private String surname;
 }

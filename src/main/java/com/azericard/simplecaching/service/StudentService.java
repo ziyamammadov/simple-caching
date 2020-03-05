@@ -37,11 +37,12 @@ public class StudentService {
         return studentRepository.delete(student);
     }
 
-    @Cacheable(value = "allStudents", unless = "#result == null")
-    public Student getStudentById(long id) throws InterruptedException {
+    @Cacheable(value = "allStudents", unless = "#result == null" ,key = "#id")
+    public Student getStudentById(String id) throws InterruptedException {
         logger.info("getStudentById method of service called");
         Thread.sleep(2000);
-        return studentRepository.getById(id);
+        Student student = studentRepository.getById(Long.parseLong(id));
+        return student;
     }
 
     @Cacheable(value = "allStudents", unless = "#result == null")

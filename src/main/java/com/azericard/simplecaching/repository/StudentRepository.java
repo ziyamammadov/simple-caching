@@ -12,7 +12,7 @@ public class StudentRepository {
     private static final Map<Long, Student> STUDENT_MAP = new HashMap<>();
 
     public Student save(Student student) {
-        return  STUDENT_MAP.put(student.getId(), student);
+        return STUDENT_MAP.put(student.getId(), student);
     }
 
     public Student update(Student student) {

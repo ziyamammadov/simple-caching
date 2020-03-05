@@ -32,10 +32,12 @@ public class StudentController {
         return studentService.getAll();
     }
 
+
     @GetMapping("/get/{id}")
     public Student findStudentById(@PathVariable long id) throws InterruptedException {
         logger.info("findStudentById method of controller called");
-        return studentService.getStudentById(id);
+        Student student = studentService.getStudentById(String.valueOf(id));
+        return student;
     }
 
     @DeleteMapping("/delete")
@@ -43,7 +45,8 @@ public class StudentController {
         logger.info("delete method of controller called");
         return studentService.delete(student);
     }
-    @PostMapping ("/update")
+
+    @PostMapping("/update")
     public Student update(@RequestBody Student student) {
         logger.info("update method of controller called");
         return studentService.update(student);
